@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[andy's note]]></title>
   <link href="http://amenouta.github.com/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-03-11T13:31:38+04:00</updated>
+  <updated>2012-03-11T14:25:07+04:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[andy]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[test]]></title>
+    <link href="http://amenouta.github.com/blog/2012/03/11/test/"/>
+    <updated>2012-03-11T14:11:00+04:00</updated>
+    <id>http://amenouta.github.com/blog/2012/03/11/test</id>
+    <content type="html"><![CDATA[<p>Liquid error: Could not open library &#8216;lib.so&#8217;: lib.so: cannot open shared object file: No such file or directory</p>
+]]></content>
+  </entry>
   
 </feed>
