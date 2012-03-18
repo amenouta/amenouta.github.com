@@ -4,7 +4,7 @@
   <title><![CDATA[andy's note]]></title>
   <link href="http://amenouta.github.com/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-03-11T15:15:43+04:00</updated>
+  <updated>2012-03-18T15:38:54+04:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
     <name><![CDATA[andy]]></name>
@@ -14,10 +14,31 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Gitconfig]]></title>
+    <link href="http://amenouta.github.com/blog/2012/03/18/gitconfig/"/>
+    <updated>2012-03-18T15:25:00+04:00</updated>
+    <id>http://amenouta.github.com/blog/2012/03/18/gitconfig</id>
+    <content type="html"><![CDATA[<p>記錄git 設定檔
+&#8221;&#8217;shell
+[user]
+name = andy
+email = ay771229@gmail.com
+[color]
+diff = auto
+status = auto
+branch = auto
+log = auto
+ui = true
+interactive = auto
+&#8221;&#8217;</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Hello Octopree!]]></title>
-    <link href="http://amenouta.github.com/blog/2012/03/11/test/"/>
+    <link href="http://amenouta.github.com/blog/2012/03/11/sayhello/"/>
     <updated>2012-03-11T14:11:00+04:00</updated>
-    <id>http://amenouta.github.com/blog/2012/03/11/test</id>
+    <id>http://amenouta.github.com/blog/2012/03/11/sayhello</id>
     <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo make me a sandwich</span></code></pre></td></tr></table></div></figure>
 
