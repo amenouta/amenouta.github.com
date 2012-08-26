@@ -4,7 +4,7 @@
   <title><![CDATA[andy's note]]></title>
   <link href="http://amenouta.github.com/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-08-27T02:01:02+08:00</updated>
+  <updated>2012-08-27T02:12:49+08:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
     <name><![CDATA[andy]]></name>
@@ -18,11 +18,7 @@
     <link href="http://amenouta.github.com/blog/2012/08/27/well/"/>
     <updated>2012-08-27T00:42:00+08:00</updated>
     <id>http://amenouta.github.com/blog/2012/08/27/well</id>
-    <content type="html"><![CDATA[<blockquote><p>Quote string</p><footer><strong>[author[</strong> <cite>Source]] [Link] [Source_link_title]</cite></footer></blockquote>
-
-
-<p>hi  let&#8217;s figure out whether it&#8217;s edited or not
-yes, i did push it to Github.</p>
+    <content type="html"><![CDATA[<p>您好</p>
 ]]></content>
   </entry>
   
