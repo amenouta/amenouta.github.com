@@ -1,27 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://amenouta.github.com/blog/2012/03/11/sayhello/</loc>
-        <lastmod>2012-08-27T01:44:47+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://amenouta.github.com/blog/2012/03/19/bashalias/</loc>
-        <lastmod>2012-08-27T01:44:47+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://amenouta.github.com/blog/2012/03/19/test/</loc>
-        <lastmod>2012-08-27T01:44:47+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://amenouta.github.com/blog/2012/08/27/well/</loc>
-        <lastmod>2012-08-27T01:44:47+08:00</lastmod>
+        <lastmod>2012-08-27T02:00:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://amenouta.github.com/</loc>
-        <lastmod>2012-08-27T01:44:47+08:00</lastmod>
+        <lastmod>2012-08-27T02:00:29+08:00</lastmod>
     </url>
     <url>
         <loc>http://amenouta.github.com/blog/archives/</loc>
-        <lastmod>2012-08-27T01:44:47+08:00</lastmod>
+        <lastmod>2012-08-27T02:00:29+08:00</lastmod>
     </url>
 </urlset>

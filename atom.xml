@@ -4,7 +4,7 @@
   <title><![CDATA[andy's note]]></title>
   <link href="http://amenouta.github.com/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-08-27T01:44:55+08:00</updated>
+  <updated>2012-08-27T02:01:02+08:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
     <name><![CDATA[andy]]></name>
@@ -14,62 +14,15 @@
 
   
   <entry>
-    <title type="html"><![CDATA[well]]></title>
+    <title type="html"><![CDATA[您好。]]></title>
     <link href="http://amenouta.github.com/blog/2012/08/27/well/"/>
     <updated>2012-08-27T00:42:00+08:00</updated>
     <id>http://amenouta.github.com/blog/2012/08/27/well</id>
-    <content type="html"><![CDATA[<p>hi  let&#8217;s figure out whether it&#8217;s edited or not
+    <content type="html"><![CDATA[<blockquote><p>Quote string</p><footer><strong>[author[</strong> <cite>Source]] [Link] [Source_link_title]</cite></footer></blockquote>
+
+
+<p>hi  let&#8217;s figure out whether it&#8217;s edited or not
 yes, i did push it to Github.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[test]]></title>
-    <link href="http://amenouta.github.com/blog/2012/03/19/test/"/>
-    <updated>2012-03-19T05:49:00+08:00</updated>
-    <id>http://amenouta.github.com/blog/2012/03/19/test</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>zh_TW.UTF-8
-</span><span class='line'>
-</span><span class='line'>mkdir aabb
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[bashalias]]></title>
-    <link href="http://amenouta.github.com/blog/2012/03/19/bashalias/"/>
-    <updated>2012-03-19T05:41:00+08:00</updated>
-    <id>http://amenouta.github.com/blog/2012/03/19/bashalias</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
-</span><span class='line'>  <span class="k">echo</span> <span class="s2">&quot;test&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h1&gt;</span>   echo &quot;test&quot;<span class="nt">&lt;/h1&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hello Octopress!]]></title>
-    <link href="http://amenouta.github.com/blog/2012/03/11/sayhello/"/>
-    <updated>2012-03-11T14:11:00+08:00</updated>
-    <id>http://amenouta.github.com/blog/2012/03/11/sayhello</id>
-    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Hello World!</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   
