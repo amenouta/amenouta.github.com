@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[andy's note]]></title>
-  <link href="http://amenouta.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: talking | andy's note]]></title>
+  <link href="http://amenouta.github.com/blog/categories/talking/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
   <updated>2012-09-15T22:19:06+08:00</updated>
   <id>http://amenouta.github.com/</id>
@@ -18,15 +18,14 @@
     <link href="http://amenouta.github.com/blog/2012/09/15/well/"/>
     <updated>2012-09-15T23:42:00+08:00</updated>
     <id>http://amenouta.github.com/blog/2012/09/15/well</id>
-    <content type="html"><![CDATA[<p>Hello Welcome to Andy&#8217;s Tech Blog supported by Octopress.<br/>
+    <content type="html"><![CDATA[<p>Hello Welcome to Andy's Tech Blog supported by Octopress.<br/>
 將在這裡記錄關於技術與想法的一些筆記。<br/>
 包含 <code>HTML</code> <code>CSS</code> <code>PHP</code> <code>JavaScript</code>等等跟網頁相關的技術以及一些個人的想法與經驗分享，希望在開始工作之後，能將學習到的知識以具體的方式記錄下來，也讓初學者們能夠繞更少冤枉路。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Welcome to my blog :)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Andy.</p>
+<p><code>
+Welcome to my blog :)
+</code>
+Andy.</p>
 ]]></content>
   </entry>
   
