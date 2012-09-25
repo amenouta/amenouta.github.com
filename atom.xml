@@ -4,7 +4,7 @@
   <title><![CDATA[andy's note]]></title>
   <link href="http://amenouta.github.com/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-09-25T13:54:23+08:00</updated>
+  <updated>2012-09-25T14:14:49+08:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
     <name><![CDATA[andy]]></name>
@@ -126,6 +126,9 @@
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>/etc/init.d/postgresql restart</span></code></pre></td></tr></table></div></figure>
 
+
+<p>附錄：<br/>欄位型態 <a href='http://www.postgresql.org/docs/9.1/static/datatype.html'>http://www.postgresql.org/docs/9.1/static/datatype.html</a><br/>
+相關功能路徑 <code>/usr/lib/postgresql/9.1/bin</code></p>
 
 <p>後記：PostgreSQL的功能蠻複雜的，才剛開始看，還有很多要研究的，相關設定如果較有心得之後會再陸續分享，感謝觀看。</p>
 ]]></content>
