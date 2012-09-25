@@ -9,9 +9,7 @@
   <meta name="author" content="andy">
 
   
-  <meta name="description" content="Hello Welcome to Andy&#8217;s Tech Blog supported by Octopress.
-將在這裡記錄關於技術與想法的一些筆記。
-包含 HTML CSS PHP JavaScript等等跟網頁相關的技術以及一些個人的想法與經驗分享，希望在開始工作之後， &hellip;">
+  <meta name="description" content="閒來無事就把機器裝上了PostgreSQL，其實很久以前就一直知道這個資料庫了，從很久以前在玩CMS的時候就知道了，只不過一直以來都是使用MySQL當做網站的資料庫，所以一直也沒機會使用。 大四做專題的時候因為接觸到GIS的東西，搜尋的時候也有發現PostgreSQL， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -111,6 +109,151 @@
       
   <header class="page-header">
     
+      <h1 class="entry-title"><a href="/blog/2012/09/25/postgres-environment/">Setup PostgreSQL 9.1 on Ubuntu 11.04</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-25T12:42:00+08:00" pubdate data-updated="true">Sep 25<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/09/25/postgres-environment/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>閒來無事就把機器裝上了<code>PostgreSQL</code>，其實很久以前就一直知道這個資料庫了，從很久以前在玩CMS的時候就知道了，只不過一直以來都是使用<code>MySQL</code>當做網站的資料庫，所以一直也沒機會使用。</p>
+
+<p>大四做專題的時候因為接觸到GIS的東西，搜尋的時候也有發現PostgreSQL，好像也有支援GIS的一些型態等等的還有相關的Library可以整合應用的樣子，不過也是覺得不錯而沒有實際使用。</p>
+
+<p>最近因為工作上需要學習<code>yii Framework</code>的時候，裡面的Environment requirement的部份有列出一些需要安裝的extensions，像是<code>memcached</code> <code>APC</code>等之前沒有接觸過的。還有列出支援的資料庫需要安裝的extensions，包括 <code>MySQL</code> <code>SQLite</code> 還有這裡講的<code>PostgreSQL</code>
+所以可以說是因為一種神經質的體現，就直接安裝了<code>PostgreSQL</code></p>
+
+<p><img src='https://dl.dropbox.com/u/16035461/blog/postgresql_logo.png'>
+<img src="https://dl.dropbox.com/u/16035461/blog/postgresql_logo.png"></p>
+
+<p>看網路上討論提到預設的repository支援Ubuntu 11.04(natty)的是8.x.x版的樣子，還是想裝新一點的版本，所以參考網路上提供的，加入私人維護的頻道來取得較新的版本。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get install python-software-properties
+</span><span class='line'>add-apt-repository ppa:pitti/postgresql</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安裝 <code>python-software-properties</code> 之後才能使用 <code>add-apt-repository</code>指令加入repository。如果不想安裝的話需要自己更改<code>/etc/apt/source.list</code>檔案加入路徑之後還要跑<code>apt-key</code>指令去取得Key之後才能使用，因為比較麻煩這邊就不探討，因為我選擇使用<code>add-apt-repository</code>來處理。</p>
+
+<p>安裝完成之後先更新套件清單再安裝相關套件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get update</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安裝 <code>PostgreSQL</code> <code>php5-pgsql</code>(讓PHP可以使用PostgreSQL) 還有用來管理的套件<code>phppgadmin</code>(PostgreSQL 的 phpMyadmin)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get install postgresql php5-pgsql phppgadmin</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安裝完記得重新啟動 apache</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/etc/init.d/apache2 restart</span></code></pre></td></tr></table></div></figure>
+
+
+<p>到這邊，<code>PostgreSQL</code>相關的基本套件就都安裝好了。 接下來是兩個自己使用上需求會用到的設定。</p>
+
+<p>PostgreSQL預設是會建立一個系統帳號<code>postgres</code>，在Ubuntu中要直接進入主控台執行SQL的時候，需要以該帳號才能執行其主控台指令<code>psql</code>，如下</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>su postgres
+</span><span class='line'>psql</span></code></pre></td></tr></table></div></figure>
+
+
+<p>因為不想每次使用<code>psql</code>指令都要切換使用者，所以就要更改一下設定檔，下圖1中的<code>peer</code>改成<code>trust</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim /etc/postgresql/9.1/main/pg_hba.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src='https://dl.dropbox.com/u/16035461/blog/postgres1.png'>
+圖1
+<img src='https://dl.dropbox.com/u/16035461/blog/postgres2.png'>
+圖2</p>
+
+<p>在vim中存檔離開<code>:wq</code>之後重新啟動PostgreSQL</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/etc/init.d/postgresql restart</span></code></pre></td></tr></table></div></figure>
+
+
+<p>之後就可以在未切換系統使用者的狀態下，直接輸入指令進入PostgreSQL主控台進行操作。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>psql -U postgres</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接下來的部分是因為我個人習慣在自己的電腦上面使用<code>Navicat</code>這套資料庫管理系統來進行操作，所以資料庫需要設定成可以讓外部連線登入操作，相關設定如下。</p>
+
+<p>因為可以讓遠端登入，預設帳號沒有密碼，所以先更改密碼。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>psql -U postgres
+</span><span class='line'>alter user postgres with password 'postgres';
+</span><span class='line'>\q</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接著修改<code>postgresql.conf</code>設定檔</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim /etc/postgresql/9.1/main/postgresql.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在檔案中搜尋 <code>listen_addresses</code> 後設定為 <code>listen_addresses = '*'</code> 後儲存關閉</p>
+
+<p>修改<code>pg_hba.conf</code>設定檔</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim /etc/postgresql/9.1/main/pg_hba.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如下圖3，加入第94行至檔案中
+<img src='https://dl.dropbox.com/u/16035461/blog/postgres3.png'>
+圖3</p>
+
+<p>最後重開PostgreSQL後即完成，可從遠端登入進行管理。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/etc/init.d/postgresql restart</span></code></pre></td></tr></table></div></figure>
+
+
+<p>後記：PostgreSQL的功能蠻複雜的，才剛開始看，還有很多要研究的，相關設定如果較有心得之後會再陸續分享，感謝觀看。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header class="page-header">
+    
       <h1 class="entry-title"><a href="/blog/2012/08/27/well/">Hello</a></h1>
     
     
@@ -164,11 +307,15 @@
   <ul id="Category-Cloud" class="nav">
     <li class="nav-header">Category Cloud</li>
   </ul>
-  <span id="tag-cloud"><a href='/blog/categories/talking' style='font-size: 160.0%'>talking(1)</a> </span>
+  <span id="tag-cloud"><a href='/blog/categories/postgresql' style='font-size: 160.0%'>PostgreSQL(1)</a> <a href='/blog/categories/talking' style='font-size: 160.0%'>talking(1)</a> <a href='/blog/categories/ubuntu' style='font-size: 160.0%'>Ubuntu(1)</a> </span>
 </section>
 <section class="well">
   <ul id="recent_posts" class="nav nav-list">
     <li class="nav-header">Recent Posts</li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/25/postgres-environment/">Setup PostgreSQL 9.1 on Ubuntu 11.04</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/08/27/well/">Hello</a>
