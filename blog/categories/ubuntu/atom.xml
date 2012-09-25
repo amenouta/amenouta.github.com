@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu | andy's note]]></title>
   <link href="http://amenouta.github.com/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-09-25T13:42:29+08:00</updated>
+  <updated>2012-09-25T13:48:10+08:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
     <name><![CDATA[andy]]></name>
@@ -18,14 +18,14 @@
     <link href="http://amenouta.github.com/blog/2012/09/25/postgres-environment/"/>
     <updated>2012-09-25T12:42:00+08:00</updated>
     <id>http://amenouta.github.com/blog/2012/09/25/postgres-environment</id>
-    <content type="html"><![CDATA[<p>閒來無事就把機器裝上了<code>PostgreSQL</code>，其實很久以前就一直知道這個資料庫了，從很久以前在玩CMS的時候就知道了，只不過一直以來都是使用<code>MySQL</code>當做網站的資料庫，所以一直也沒機會使用。</p>
+    <content type="html"><![CDATA[<p><img src='https://dl.dropbox.com/u/16035461/blog/postgresql.jpg' width=600px></p>
+
+<p>閒來無事就把機器裝上了<code>PostgreSQL</code>，其實很久以前就一直知道這個資料庫了，從很久以前在玩CMS的時候就知道了，只不過一直以來都是使用<code>MySQL</code>當做網站的資料庫，所以一直也沒機會使用。</p>
 
 <p>大四做專題的時候因為接觸到GIS的東西，搜尋的時候也有發現PostgreSQL，好像也有支援GIS的一些型態等等的還有相關的Library可以整合應用的樣子，不過也是覺得不錯而沒有實際使用。</p>
 
 <p>最近因為工作上需要學習<code>yii Framework</code>的時候，裡面的Environment requirement的部份有列出一些需要安裝的extensions，像是<code>memcached</code> <code>APC</code>等之前沒有接觸過的。還有列出支援的資料庫需要安裝的extensions，包括 <code>MySQL</code> <code>SQLite</code> 還有這裡講的<code>PostgreSQL</code>
 所以可以說是因為一種神經質的體現，就直接安裝了<code>PostgreSQL</code></p>
-
-<p><img src='https://dl.dropbox.com/u/16035461/blog/postgresql_logo.png'></p>
 
 <p>看網路上討論提到預設的repository支援Ubuntu 11.04(natty)的是8.x.x版的樣子，還是想裝新一點的版本，所以參考網路上提供的，加入私人維護的頻道來取得較新的版本。</p>
 
@@ -64,7 +64,7 @@ psql
 vim /etc/postgresql/9.1/main/pg_hba.conf
 </code>
 <img src='https://dl.dropbox.com/u/16035461/blog/postgres1.png'><br/>
-圖1
+圖1<br/>
 <img src='https://dl.dropbox.com/u/16035461/blog/postgres2.png'><br/>
 圖2</p>
 
