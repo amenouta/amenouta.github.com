@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PostgreSQL | andy's note]]></title>
   <link href="http://amenouta.github.com/blog/categories/postgresql/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-09-25T13:48:10+08:00</updated>
+  <updated>2012-09-25T13:54:23+08:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
     <name><![CDATA[andy]]></name>
@@ -26,6 +26,9 @@
 
 <p>最近因為工作上需要學習<code>yii Framework</code>的時候，裡面的Environment requirement的部份有列出一些需要安裝的extensions，像是<code>memcached</code> <code>APC</code>等之前沒有接觸過的。還有列出支援的資料庫需要安裝的extensions，包括 <code>MySQL</code> <code>SQLite</code> 還有這裡講的<code>PostgreSQL</code>
 所以可以說是因為一種神經質的體現，就直接安裝了<code>PostgreSQL</code></p>
+
+<!-- more -->
+
 
 <p>看網路上討論提到預設的repository支援Ubuntu 11.04(natty)的是8.x.x版的樣子，還是想裝新一點的版本，所以參考網路上提供的，加入私人維護的頻道來取得較新的版本。</p>
 
