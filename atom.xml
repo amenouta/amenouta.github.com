@@ -4,7 +4,7 @@
   <title><![CDATA[andy's note]]></title>
   <link href="http://amenouta.github.com/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-10-17T10:44:28+08:00</updated>
+  <updated>2012-10-17T10:55:08+08:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
     <name><![CDATA[andy]]></name>
@@ -18,13 +18,13 @@
     <link href="http://amenouta.github.com/blog/2012/10/16/xdebug_osx/"/>
     <updated>2012-10-16T12:42:00+08:00</updated>
     <id>http://amenouta.github.com/blog/2012/10/16/xdebug_osx</id>
-    <content type="html"><![CDATA[<p><img src='https://dl.dropbox.com/u/16035461/blog/xdebug.png' ></p>
+    <content type="html"><![CDATA[<p><img src='https://dl.dropbox.com/u/16035461/blog/xdebug.jpg' ></p>
 
 <p>今天早上折騰許久終於將Xdebug順利安裝在mac上面搭配Sublime Text的外掛一起使用，還算是不錯，雖然可能還是沒有直接在IDE中debug那個方便，但是也還不錯。畢竟最近用習慣Sublime Text了，所以如果可以在上面達到需要的效果的話，還是會希望可以持續使用它來做開發，就如同在Windows上面的時候非常順手的Notepad++一般。</p>
 
 <p>先從安裝Xdebug開始，因為Sublime Text的外掛在安裝上非常簡易也不太會有什麼問題。倒是在安裝Xdebug上面試了好幾次之後才成功，或許是因為在Terminal上面操作的關係Apache好像有點沒在鳥我的重開指令…之類的啦</p>
 
-<p>接著讓我們進入正題。以PHP作為開發網頁的語言以來也有三年多了，經驗可以說是還算可以，不過唯獨在debug的部份，一直都僅僅是仰賴在php.ini中開啟Display_errors的選項之後所吐出來的error message，如果需要檢查一些程式有沒有作用的時候，也只能使用echo print_r() var_dump()等非常原始的方式來檢視當前的變數值，老實講也是因為開發的系統一向規模都不大，也才可以用這幾招就得以行走江湖。但是只要稍微搜尋一下就可以得知，Xdebug在PHP開發者中其實早就已經算是個必備的工具了，而我卻也才剛接觸而已，當然也希望將環境設置好之後，能在撰寫PHP上面更有效率些。</p>
+<p>接著讓我們進入正題。以PHP作為開發網頁的語言以來也有三年多了，經驗可以說是還算可以，不過唯獨在debug的部份，一直都僅僅是仰賴在php.ini中開啟錯誤顯示的選項之後所吐出來的error message，如果需要檢查一些程式有沒有作用的時候，也只能使用echo print_r() var_dump()等非常原始的方式來檢視當前的變數值，老實講也是因為開發的系統一向規模都不大，也才可以用這幾招就得以行走江湖。但是只要稍微搜尋一下就可以得知，Xdebug在PHP開發者中其實早就已經算是個必備的工具了，而我卻也才剛接觸而已，當然也希望將環境設置好之後，能在撰寫PHP上面更有效率些。</p>
 
 <!-- more -->
 
@@ -67,7 +67,7 @@
 </span><span class='line'>sudo vim php.ini</span></code></pre></td></tr></table></div></figure>
 
 
-<p>開啟<code>php.ini</code>檔案之後，找到 <code>zend_extension="/usr/lib/php/extensions/no-debug-non-zts-20090626/xdebug.so"</code> 將前面的 <code>;</code>移除掉以取消註解。接著搜尋 xdebug 找到 <code>[xdebug]</code> 區塊，在底下加入相關的設定，<code>xdebug.idekey="sublime.xdebug"</code>這個是待會安裝的Sublime Text2的外掛指定的key，編輯後存檔關閉。</p>
+<p>開啟<code>php.ini</code>檔案之後，找到 <code>zend_extension="/usr/lib/php/extensions/no-debug-non-zts-20090626/xdebug.so"</code> <br/>將前面的 <code>;</code>移除掉以取消註解。接著搜尋 xdebug 找到 <code>[xdebug]</code> 區塊，在底下加入相關的設定，<code>xdebug.idekey="sublime.xdebug"</code>這個是待會安裝的Sublime Text2的外掛指定的key，編輯後存檔關閉。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -168,7 +168,7 @@
 </ul>
 
 
-<p>需要更改熱鍵設定的話，打開該外怪的資料夾後開啟 <code>(OSX).sublime-keymap</code>檔案做修改，預設內容如下</p>
+<p>需要更改熱鍵設定的話，打開該外掛的資料夾後開啟 <code>(OSX).sublime-keymap</code>檔案做修改，預設內容如下</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
