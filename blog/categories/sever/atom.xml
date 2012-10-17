@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sever | andy's note]]></title>
   <link href="http://amenouta.github.com/blog/categories/sever/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-10-17T13:59:46+08:00</updated>
+  <updated>2012-10-17T14:13:45+08:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
     <name><![CDATA[andy]]></name>
@@ -44,7 +44,7 @@
 
 <p>先從安裝Xdebug開始，如果連到<a href="http://xdebug.org/" target="new">官網</a>的話，我們會發現只有提供source還有Windows binaries，看起來似乎是無法直接在Mac的OSX環境上使用的樣子。經過一番搜尋之後，還好發現有一個網站有提供binary的檔案供下載，當然要下載source回來自己編譯也是可以，這個部分官網上面有教學，就不贅述。</p>
 
-<p>連結：<a href=""http://code.activestate.com/komodo/remotedebugging/"" target="new"><code>xdebug.so</code></a></p>
+<p>連結：<a href="http://code.activestate.com/komodo/remotedebugging/" target="new"><code>xdebug.so</code></a></p>
 
 <p>連進去之後下載 <code>PHP Remote Debugging Client</code> 的Mac端檔案，解壓縮之後會看到裡面有一些資料夾，就對照我們本機上的PHP版本安裝就可以了，如果不知道自己機器上的PHP版本，可以透過Terminal執行以下指令，就可以看到機器上的PHP版本。</p>
 
