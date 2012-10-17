@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Yii | andy's note]]></title>
   <link href="http://amenouta.github.com/blog/categories/yii/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-10-17T10:23:29+08:00</updated>
+  <updated>2012-10-17T10:29:56+08:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
     <name><![CDATA[andy]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Yii Framework development environment]]></title>
-    <link href="http://amenouta.github.com/blog/2012/09/30/yiienvironment/"/>
-    <updated>2012-09-30T22:42:00+08:00</updated>
-    <id>http://amenouta.github.com/blog/2012/09/30/yiienvironment</id>
+    <link href="http://amenouta.github.com/blog/2012/10/20/yiienvironment/"/>
+    <updated>2012-10-20T22:42:00+08:00</updated>
+    <id>http://amenouta.github.com/blog/2012/10/20/yiienvironment</id>
     <content type="html"><![CDATA[<p><img src='https://dl.dropbox.com/u/16035461/blog/yiilogo.png'></p>
 
 <p>上一篇有稍微提到過，雖然10/11才開始上班，但是有先跟我說工作上會需要使用Yii Framework來開發平台，跟面試的時候談到預計使用Codeigniter有點出入，不過當然就是趕快在上班前先熟悉一下Yii。</p>

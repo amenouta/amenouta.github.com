@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | andy's note]]></title>
   <link href="http://amenouta.github.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
-  <updated>2012-10-17T10:23:29+08:00</updated>
+  <updated>2012-10-17T10:29:56+08:00</updated>
   <id>http://amenouta.github.com/</id>
   <author>
     <name><![CDATA[andy]]></name>
@@ -14,168 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Install Xdebug with Sublime Text 2 on osx 10.7]]></title>
-    <link href="http://amenouta.github.com/blog/2012/10/16/xdebug_osx/"/>
-    <updated>2012-10-16T12:42:00+08:00</updated>
-    <id>http://amenouta.github.com/blog/2012/10/16/xdebug_osx</id>
-    <content type="html"><![CDATA[<p><img src='https://dl.dropbox.com/u/16035461/blog/xdebug.png' ></p>
-
-<p>今天早上折騰許久終於將Xdebug順利安裝在mac上面搭配Sublime Text的外掛一起使用，還算是不錯，雖然可能還是沒有直接在IDE中debug那個方便，但是也還不錯。畢竟最近用習慣Sublime Text了，所以如果可以在上面達到需要的效果的話，還是會希望可以持續使用它來做開發，就如同在Windows上面的時候非常順手的Notepad++一般。</p>
-
-<p>先從安裝Xdebug開始，因為Sublime Text的外掛在安裝上非常簡易也不太會有什麼問題。倒是在安裝Xdebug上面試了好幾次之後才成功，或許是因為在Terminal上面操作的關係Apache好像有點沒在鳥我的重開指令…之類的啦</p>
-
-<p>接著讓我們進入正題。以PHP作為開發網頁的語言以來也有三年多了，經驗可以說是還算可以，不過唯獨在debug的部份，一直都僅僅是仰賴在php.ini中開啟Display_errors的選項之後所吐出來的error message，如果需要檢查一些程式有沒有作用的時候，也只能使用echo print_r() var_dump()等非常原始的方式來檢視當前的變數值，老實講也是因為開發的系統一向規模都不大，也才可以用這幾招就得以行走江湖。但是只要稍微搜尋一下就可以得知，Xdebug在PHP開發者中其實早就已經算是個必備的工具了，而我卻也才剛接觸而已，當然也希望將環境設置好之後，能在撰寫PHP上面更有效率些。</p>
-
-<!-- more -->
-
-
-<h3>目錄</h3>
-
-
-<ol>
-<li>安裝Xdebug extension</li>
-<li>設定php.ini</li>
-<li>安裝Xdebug plugin for Sublime Text2</li>
-</ol>
-
-
-<h3>1.安裝Xdebug extension</h3>
-
-
-<p>先從安裝Xdebug開始，如果連到<a href="http://xdebug.org/" target="new">官網</a>的話，我們會發現只有提供source還有Windows binaries，看起來似乎是無法直接在Mac的OSX環境上使用的樣子。經過一番搜尋之後，還好發現有一個網站有提供binary的檔案供下載，當然要下載source回來自己編譯也是可以，這個部分官網上面有教學，就不贅述。</p>
-
-<p><code>http://code.activestate.com/komodo/remotedebugging/</code></p>
-
-<p>連進去之後下載 <code>PHP Remote Debugging Client</code> 的Mac端檔案，解壓縮之後會看到裡面有一些資料夾，就對照我們本機上的PHP版本安裝就可以了，如果不知道自己機器上的PHP版本，可以透過Terminal執行以下指令，就可以看到機器上的PHP版本。</p>
-
-<p><code>
-php -v
-</code></p>
-
-<p>找到對應版本資料夾中的Xdebug檔案 <code>xdebug.so</code>之後，將檔案複製到 <code>/usr/lib/php/extensions/no-debug-non-zts-20090626/</code> 我自己電腦上資料中是原本就有一個<code>xdebug.so</code>的檔案，可以先做更名之後再將檔案複製過來，系統詢問認證的時候輸入有管理權限的使用者密碼就可以複製了。</p>
-
-<h3>2.設定php.ini</h3>
-
-
-<p>接著我們要設定<code>php.ini</code>，讓server可以順利載入Xdebug的php extension。Mac預設的網頁伺服器並沒有設定對應的<code>php.ini</code>，我們可以複製範本檔案<code>php.ini.default</code>到<code>php.ini</code>，這樣子伺服器就可以讀到PHP的相關設定，然後再用編輯器開啟檔案來做設定，這邊是直接在終端機中打開所以直接使用<code>vim</code>指令開啟檔案。</p>
-
-<p><code>
-cd /private/etc   &lt;- 等同於 /etc
-sudo cp php.ini.default php.ini
-sudo vim php.ini
-</code></p>
-
-<p>開啟<code>php.ini</code>檔案之後，找到 <code>zend_extension="/usr/lib/php/extensions/no-debug-non-zts-20090626/xdebug.so"</code> 將前面的 <code>;</code>移除掉以取消註解。接著搜尋 xdebug 找到 <code>[xdebug]</code> 區塊，在底下加入相關的設定，<code>xdebug.idekey="sublime.xdebug"</code>這個是待會安裝的Sublime Text2的外掛指定的key，編輯後存檔關閉。</p>
-
-<p><code>
-[xdebug]
-xdebug.idekey="sublime.xdebug"
-xdebug.remote_enable=1
-xdebug.remote_handler=dbgp
-xdebug.remote_host=127.0.0.1
-xdebug.remote_port=9000
-xdebug.remote_log="/var/log/xdebug.log"
-xdebug.remote_autostart=1
-</code></p>
-
-<p>接著重開Apache，可以從共享設定那邊將網頁共享關閉之後再開啟，就有重開了，或是在Terminal中輸入以下指令做重開Apache的動作</p>
-
-<p><code>
-sudo apachectl restart
-</code></p>
-
-<p>開好之後在網頁資料夾底下新增一個網頁檔案，內容如下，存檔後透過瀏覽器開啟就可以看到PHP的相關設定，如果可以搜尋到xdebug的選項區塊的話，代表Xdebug已經順利安裝好了，如下圖一所示
-```
-&lt;?php</p>
-
-<pre><code>echo phpinfo(); 
-</code></pre>
-
-<p>?>
-```
-<img src="https://dl.dropbox.com/u/16035461/blog/xdebug1.png"><br/>圖1</p>
-
-<h3>3.安裝與設定 Xdebug plugin for Sublime Text2</h3>
-
-
-<p>這裡使用一套叫做 <code>SublimeXdebug</code>的外掛來讓Sublime Text2可以跟安裝好的Xdebug溝通>
-因為在Package manager中找不到該外掛，所以我們直接去<code>github</code>下載<code>Sublime Text2</code>的Xdebug plugin<br/></p>
-
-<br/>
-
-
-<p>連結：<a href="https://github.com/Kindari/SublimeXdebug" target="new"><code>SUblimeXdebug</code></a></p>
-
-<p>下載解壓縮後將整個資料夾貼到Sublime Text的Package資料夾中，可以透過選單中的 <code>Preference-&gt;Browse Packages…</code> 開啟Package資料夾，然後將外掛檔案複製進去，再重新開啟Sublime就可以了。</p>
-
-<p>將網站資料夾加入Sublime之後，存成Project <code>Project-&gt;Save Project As</code> 之後點選 <code>Project-&gt;Edit Project</code> 開啟專案設定檔後加入<code>settings</code>區塊設定xdebug需要的路徑</p>
-
-<p>```
-{</p>
-
-<pre><code>"folders":
-[
-    {
-        "path": "/Users/Andy/Sites/work/my83"
-    }
-],
-
-"settings": {
-    "xdebug": { "url": "localhost/~andy/work/my83" }
-}
-</code></pre>
-
-<p>}
-```
-到這邊設定就完成了，使用上參照外掛的說明為主。設定好中斷點之後就可以Start debugging了，畫面如下。
-<img src="https://dl.dropbox.com/u/16035461/blog/xdebug2.png"></p>
-
-<h3>附錄</h3>
-
-
-
-
-<h5>預設熱鍵</h5>
-
-
-<ul>
-<li><code>Shift+f8</code>: 開啟Xdebug操作選單</li>
-<li><code>f8</code>: 當debugger已連結時，開啟Xdebug操作選單</li>
-<li><code>Ctrl+f8</code>: 標示中斷點</li>
-<li><code>Ctrl+Shift+f5</code>: 執行至下一中斷點</li>
-<li><code>Ctrl+Shift+f6</code>: Step over ( 遇到函式呼叫時，確定該函式不會有問題時使用 )</li>
-<li><code>Ctrl+Shift+f7</code>: Step into ( 遇到函式呼叫時跳進該函式 )</li>
-<li><code>Ctrl+Shift+f8</code>: Step out ( 在函式中確認後面程式無誤，跳至上一層 ）</li>
-</ul>
-
-
-<p>需要更改熱鍵設定的話，打開該外怪的資料夾後開啟 <code>(OSX).sublime-keymap</code>檔案做修改，預設內容如下</p>
-
-<p>```
-[</p>
-
-<pre><code>{"keys": ["shift+f8"], "command": "xdebug" },
-{"keys": ["f8"], "command": "xdebug_continue" },
-{"keys": ["ctrl+f8"], "command": "xdebug_breakpoint"},
-{"keys": ["ctrl+shift+f5"], "command": "xdebug_continue", "args": {"state": "run"}},
-{"keys": ["ctrl+shift+f6"], "command": "xdebug_continue", "args": {"state": "step_over"}},
-{"keys": ["ctrl+shift+f7"], "command": "xdebug_continue", "args": {"state": "step_into"}},
-{"keys": ["ctrl+shift+f8"], "command": "xdebug_continue", "args": {"state": "step_out"}}
-</code></pre>
-
-<p>]</p>
-
-<p>```</p>
-
-<p>希望透過適當的工具，在開發上能夠更得心應手。</p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Yii Framework development environment]]></title>
-    <link href="http://amenouta.github.com/blog/2012/09/30/yiienvironment/"/>
-    <updated>2012-09-30T22:42:00+08:00</updated>
-    <id>http://amenouta.github.com/blog/2012/09/30/yiienvironment</id>
+    <link href="http://amenouta.github.com/blog/2012/10/20/yiienvironment/"/>
+    <updated>2012-10-20T22:42:00+08:00</updated>
+    <id>http://amenouta.github.com/blog/2012/10/20/yiienvironment</id>
     <content type="html"><![CDATA[<p><img src='https://dl.dropbox.com/u/16035461/blog/yiilogo.png'></p>
 
 <p>上一篇有稍微提到過，雖然10/11才開始上班，但是有先跟我說工作上會需要使用Yii Framework來開發平台，跟面試的時候談到預計使用Codeigniter有點出入，不過當然就是趕快在上班前先熟悉一下Yii。</p>
