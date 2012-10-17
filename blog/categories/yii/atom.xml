@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ubuntu | andy's note]]></title>
-  <link href="http://amenouta.github.com/blog/categories/ubuntu/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Yii | andy's note]]></title>
+  <link href="http://amenouta.github.com/blog/categories/yii/atom.xml" rel="self"/>
   <link href="http://amenouta.github.com/"/>
   <updated>2012-10-17T10:03:28+08:00</updated>
   <id>http://amenouta.github.com/</id>
@@ -14,18 +14,15 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Setup PostgreSQL 9.1 on Ubuntu 11.04]]></title>
-    <link href="http://amenouta.github.com/blog/2012/09/25/postgres-environment/"/>
-    <updated>2012-09-25T12:42:00+08:00</updated>
-    <id>http://amenouta.github.com/blog/2012/09/25/postgres-environment</id>
-    <content type="html"><![CDATA[<p><img src='https://dl.dropbox.com/u/16035461/blog/postgresql.jpg' width=600px></p>
+    <title type="html"><![CDATA[Yii Framework development environment]]></title>
+    <link href="http://amenouta.github.com/blog/2012/09/30/yiienvironment/"/>
+    <updated>2012-09-30T22:42:00+08:00</updated>
+    <id>http://amenouta.github.com/blog/2012/09/30/yiienvironment</id>
+    <content type="html"><![CDATA[<p><img src='https://dl.dropbox.com/u/16035461/blog/yiilogo.png'></p>
 
-<p>閒來無事就把機器裝上了<code>PostgreSQL</code>，其實很久以前就一直知道這個資料庫了，從很久以前在玩CMS的時候就知道了，只不過一直以來都是使用<code>MySQL</code>當做網站的資料庫，所以一直也沒機會使用。</p>
+<p>上一篇有稍微提到過，雖然10/11才開始上班，但是有先跟我說工作上會需要使用Yii Framework來開發平台，跟面試的時候談到預計使用Codeigniter有點出入，不過當然就是趕快在上班前先熟悉一下Yii。</p>
 
-<p>大四做專題的時候因為接觸到GIS的東西，搜尋的時候也有發現PostgreSQL，好像也有支援GIS的一些型態等等的還有相關的Library可以整合應用的樣子，不過也是覺得不錯而沒有實際使用。</p>
-
-<p>最近因為工作上需要學習<code>yii Framework</code>的時候，裡面的Environment requirement的部份有列出一些需要安裝的extensions，像是<code>memcached</code> <code>APC</code>等之前沒有接觸過的。還有列出支援的資料庫需要安裝的extensions，包括 <code>MySQL</code> <code>SQLite</code> 還有這裡講的<code>PostgreSQL</code>
-所以可以說是因為一種神經質的體現，就直接安裝了<code>PostgreSQL</code></p>
+<p>稍微看了一下，Yii感覺跟CI相較起來比較複雜，因為還不太熟悉，所以當然是先下載之後照著官網上面的教學一步一步照著做。</p>
 
 <!-- more -->
 
