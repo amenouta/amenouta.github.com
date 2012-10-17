@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello - andy's note</title>
+  <title>Yii Framework development environment - andy's note</title>
   <meta name="author" content="andy">
 
   
-  <meta name="description" content="Declaration of Andy's own blog to start.">
-  <meta name="keywords" content="andy,blog,hello">
+  <meta name="description" content="setup Yii Framework's development environment">
+  <meta name="keywords" content="yii,php,tutorial,environment">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://amenouta.github.com/blog/2012/08/27/well/">
+  <link rel="canonical" href="http://amenouta.github.com/blog/2012/10/20/yiienvironment/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,7 +79,7 @@
   
   <header>
     
-      <h1 class="entry-title">Hello</h1>
+      <h1 class="entry-title">Yii Framework Development Environment</h1>
     
     
       <p class="meta">
@@ -95,7 +95,7 @@
   
 
 
-<time datetime="2012-08-27T23:42:00+08:00" pubdate data-updated="true">Aug 27<span>th</span>, 2012</time>
+<time datetime="2012-10-20T22:42:00+08:00" pubdate data-updated="true">Oct 20<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -104,15 +104,116 @@
   </header>
 
 
-<div class="entry-content"><p>Hello Welcome to Andy&#8217;s Tech Blog supported by Octopress.<br/>
-將在這裡記錄關於技術與想法的一些筆記。<br/>
-包含 <code>HTML</code> <code>CSS</code> <code>PHP</code> <code>JavaScript</code>等等跟網頁相關的技術以及一些個人的想法與經驗分享，希望在開始工作之後，能將學習到的知識以具體的方式記錄下來，也讓初學者們能夠繞更少冤枉路。</p>
+<div class="entry-content"><p><img src='https://dl.dropbox.com/u/16035461/blog/yiilogo.png'></p>
+
+<p>上一篇有稍微提到過，雖然10/11才開始上班，但是有先跟我說工作上會需要使用Yii Framework來開發平台，跟面試的時候談到預計使用Codeigniter有點出入，不過當然就是趕快在上班前先熟悉一下Yii。</p>
+
+<p>稍微看了一下，Yii感覺跟CI相較起來比較複雜，因為還不太熟悉，所以當然是先下載之後照著官網上面的教學一步一步照著做。</p>
+
+<!-- more -->
+
+
+<p>看網路上討論提到預設的repository支援Ubuntu 11.04(natty)的是8.x.x版的樣子，還是想裝新一點的版本，所以參考網路上提供的，加入私人維護的頻道來取得較新的版本。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Welcome to my blog :)</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get install python-software-properties
+</span><span class='line'>add-apt-repository ppa:pitti/postgresql</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Andy.</p>
+<p>安裝 <code>python-software-properties</code> 之後才能使用 <code>add-apt-repository</code>指令加入repository。如果不想安裝的話需要自己更改<code>/etc/apt/source.list</code>檔案加入路徑之後還要跑<code>apt-key</code>指令去取得Key之後才能使用，因為比較麻煩這邊就不探討，因為我選擇使用<code>add-apt-repository</code>來處理。</p>
+
+<p>安裝完成之後先更新套件清單再安裝相關套件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get update</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安裝 <code>PostgreSQL</code> <code>php5-pgsql</code>(讓PHP可以使用PostgreSQL) 還有用來管理的套件<code>phppgadmin</code>(PostgreSQL 的 phpMyadmin)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get install postgresql php5-pgsql phppgadmin</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安裝完記得重新啟動 apache</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/etc/init.d/apache2 restart</span></code></pre></td></tr></table></div></figure>
+
+
+<p>到這邊，<code>PostgreSQL</code>相關的基本套件就都安裝好了。 接下來是兩個自己使用上需求會用到的設定。</p>
+
+<p>PostgreSQL預設是會建立一個系統帳號<code>postgres</code>，在Ubuntu中要直接進入主控台執行SQL的時候，需要以該帳號才能執行其主控台指令<code>psql</code>，如下</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>su postgres
+</span><span class='line'>psql</span></code></pre></td></tr></table></div></figure>
+
+
+<p>因為不想每次使用<code>psql</code>指令都要切換使用者，所以就要更改一下設定檔，下圖1中的<code>peer</code>改成<code>trust</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim /etc/postgresql/9.1/main/pg_hba.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src='https://dl.dropbox.com/u/16035461/blog/postgres1.png'><br/>
+圖1<br/>
+<img src='https://dl.dropbox.com/u/16035461/blog/postgres2.png'><br/>
+圖2</p>
+
+<p>在vim中存檔離開<code>:wq</code>之後重新啟動PostgreSQL</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/etc/init.d/postgresql restart</span></code></pre></td></tr></table></div></figure>
+
+
+<p>之後就可以在未切換系統使用者的狀態下，直接輸入指令進入PostgreSQL主控台進行操作。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>psql -U postgres</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接下來的部分是因為我個人習慣在自己的電腦上面使用<code>Navicat</code>這套資料庫管理系統來進行操作，所以資料庫需要設定成可以讓外部連線登入操作，相關設定如下。</p>
+
+<p>因為可以讓遠端登入，預設帳號沒有密碼，所以先更改密碼。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>psql -U postgres
+</span><span class='line'>alter user postgres with password 'postgres';
+</span><span class='line'>\q</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接著修改<code>postgresql.conf</code>設定檔</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim /etc/postgresql/9.1/main/postgresql.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在檔案中搜尋 <code>listen_addresses</code> 後設定為 <code>listen_addresses = '*'</code> 後儲存關閉</p>
+
+<p>修改<code>pg_hba.conf</code>設定檔</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim /etc/postgresql/9.1/main/pg_hba.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如下圖3，加入第94行至檔案中
+<img src='https://dl.dropbox.com/u/16035461/blog/postgres3.png'><br/>
+圖3</p>
+
+<p>最後重開PostgreSQL後即完成，可從遠端登入進行管理。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/etc/init.d/postgresql restart</span></code></pre></td></tr></table></div></figure>
+
+
+<p>附錄：<br/>欄位型態 <a href='http://www.postgresql.org/docs/9.1/static/datatype.html'>http://www.postgresql.org/docs/9.1/static/datatype.html</a><br/>
+相關功能路徑 <code>/usr/lib/postgresql/9.1/bin</code></p>
+
+<p>後記：PostgreSQL的功能蠻複雜的，才剛開始看，還有很多要研究的，相關設定如果較有心得之後會再陸續分享，感謝觀看。</p>
 </div>
 
 
@@ -135,12 +236,12 @@
   
 
 
-<time datetime="2012-08-27T23:42:00+08:00" pubdate data-updated="true">Aug 27<span>th</span>, 2012</time>
+<time datetime="2012-10-20T22:42:00+08:00" pubdate data-updated="true">Oct 20<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/talking/'>talking</a>
+    <a class='category' href='/blog/categories/php/'>PHP</a>, <a class='category' href='/blog/categories/yii/'>Yii</a>
   
 </span>
 
@@ -149,7 +250,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://amenouta.github.com/blog/2012/08/27/well/" data-via="ay771229" data-counturl="http://amenouta.github.com/blog/2012/08/27/well/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://amenouta.github.com/blog/2012/10/20/yiienvironment/" data-via="ay771229" data-counturl="http://amenouta.github.com/blog/2012/10/20/yiienvironment/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -162,8 +263,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2012/10/16/xdebug_osx/" title="Previous Post: Install Xdebug with Sublime Text 2 on osx 10.7">&laquo; Install Xdebug with Sublime Text 2 on osx 10.7</a>
       
-        <a class="basic-alignment right" href="/blog/2012/09/25/postgres-environment/" title="Next Post: Setup PostgreSQL 9.1 on Ubuntu 11.04">Setup PostgreSQL 9.1 on Ubuntu 11.04 &raquo;</a>
       
     </p>
   </footer>
@@ -267,8 +368,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://amenouta.github.com/blog/2012/08/27/well/';
-        var disqus_url = 'http://amenouta.github.com/blog/2012/08/27/well/';
+        var disqus_identifier = 'http://amenouta.github.com/blog/2012/10/20/yiienvironment/';
+        var disqus_url = 'http://amenouta.github.com/blog/2012/10/20/yiienvironment/';
         var disqus_script = 'embed.js';
       
     (function () {
